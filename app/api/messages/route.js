@@ -3,6 +3,7 @@ import Message from "@/models/Message";
 import { getSessionUser } from "@/utils/getSessionUser";
 
 export const dynamic = "force-dynamic";
+
 //GET /api/messages
 export const GET=async ()=>{
 try {
@@ -15,6 +16,7 @@ try {
       { status: 401 }
     );
   }
+  
   //Extract user object from session user
   const { userId } = sessionUser;
   const readMessages = await Message.find({ recipient: userId, read: true })
@@ -26,6 +28,7 @@ try {
     .populate("sender", "username")
     .populate("property", "name");
   const messages = [...unreadMessages, ...readMessages];
+  
 return new Response(JSON.stringify(messages),{status:200})
   
 } catch (error) {
@@ -51,8 +54,10 @@ export const POST = async (request) => {
         { status: 401 }
       );
     }
+    
     //Extract user object from session user
     const { user } = sessionUser;
+    
     //Check User cann't send message to self
     if (user.id === recipient) {
       return new Response(
