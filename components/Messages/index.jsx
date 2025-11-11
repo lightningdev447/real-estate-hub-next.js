@@ -13,6 +13,7 @@ const Messages = () => {
       try {
         setLoading(true);
         const response = await axios.get("/api/messages");
+        
         if (response.status >= 200 && response.status < 300) {
           setMessages(response.data);
         }
@@ -24,10 +25,11 @@ const Messages = () => {
     };
     getMessages();
   }, []);
-  console.log("messages", messages);
+  
   if (loading) {
     return <Spinner loading={loading} />;
   }
+  
   return (
     <section className="bg-blue-50">
       <div className="container m-auto py-24 max-w-6xl">
