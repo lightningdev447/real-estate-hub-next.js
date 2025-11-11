@@ -4,7 +4,7 @@ import { createContext, useContext, useState } from "react";
 // Create a context
 const GlobalContext = createContext();
 
-//create a provider
+//Create a provider
 export function GlobalProvider({ children }) {
   const [unReadCount, setUnReadCount] = useState(0);
   return (
@@ -14,7 +14,7 @@ export function GlobalProvider({ children }) {
   );
 }
 
-// create a custom hook to access context
+// Create a custom hook to access context
 export const useGlobalContext = () => {
   return useContext(GlobalContext);
 };
