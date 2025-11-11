@@ -145,7 +145,7 @@ Please ensure your changes adhere to the project's coding standards and include 
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
 
 ---
 
